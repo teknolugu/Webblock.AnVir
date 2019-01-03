@@ -33,7 +33,7 @@ namespace Webblock_AV
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("This PC");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("This PC");
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -67,13 +67,21 @@ namespace Webblock_AV
             this.TabSettings = new System.Windows.Forms.TabPage();
             this.TabAbout = new System.Windows.Forms.TabPage();
             this.TabScanner = new System.Windows.Forms.TabPage();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.TabQuickScan = new System.Windows.Forms.TabPage();
             this.TabFullScan = new System.Windows.Forms.TabPage();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LblTotalFiles = new System.Windows.Forms.Label();
+            this.LblDetected = new System.Windows.Forms.Label();
+            this.LblCurrentScan = new System.Windows.Forms.Label();
             this.PanelSide.SuspendLayout();
             this.TabMain.SuspendLayout();
             this.TabSelective.SuspendLayout();
             this.TabScanner.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
@@ -82,7 +90,7 @@ namespace Webblock_AV
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(387, 20);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Visible = false;
+            this.textBox1.WordWrap = false;
             // 
             // listBox1
             // 
@@ -387,10 +395,10 @@ namespace Webblock_AV
             this.treePath.ImageList = this.ShellImageList;
             this.treePath.Location = new System.Drawing.Point(27, 128);
             this.treePath.Name = "treePath";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "This PC";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "This PC";
             this.treePath.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
+            treeNode2});
             this.treePath.SelectedImageIndex = 0;
             this.treePath.Size = new System.Drawing.Size(707, 413);
             this.treePath.TabIndex = 0;
@@ -556,12 +564,22 @@ namespace Webblock_AV
             // TabScanner
             // 
             this.TabScanner.BackColor = System.Drawing.Color.DimGray;
+            this.TabScanner.Controls.Add(this.LblCurrentScan);
+            this.TabScanner.Controls.Add(this.groupBox1);
+            this.TabScanner.Controls.Add(this.label5);
             this.TabScanner.Controls.Add(this.progressBar1);
             this.TabScanner.Location = new System.Drawing.Point(23, 4);
             this.TabScanner.Name = "TabScanner";
             this.TabScanner.Size = new System.Drawing.Size(766, 622);
             this.TabScanner.TabIndex = 6;
             this.TabScanner.Text = "tabPage1";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(81, 139);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(594, 23);
+            this.progressBar1.TabIndex = 0;
             // 
             // TabQuickScan
             // 
@@ -581,12 +599,75 @@ namespace Webblock_AV
             this.TabFullScan.Text = "tabPage1";
             this.TabFullScan.UseVisualStyleBackColor = true;
             // 
-            // progressBar1
+            // label5
             // 
-            this.progressBar1.Location = new System.Drawing.Point(98, 195);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(594, 23);
-            this.progressBar1.TabIndex = 0;
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(81, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Scanning :";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.LblDetected);
+            this.groupBox1.Controls.Add(this.LblTotalFiles);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Location = new System.Drawing.Point(84, 231);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(591, 141);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Files Info";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 85);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 13);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Detected :";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(18, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Total Files :";
+            // 
+            // LblTotalFiles
+            // 
+            this.LblTotalFiles.AutoSize = true;
+            this.LblTotalFiles.Location = new System.Drawing.Point(85, 49);
+            this.LblTotalFiles.Name = "LblTotalFiles";
+            this.LblTotalFiles.Size = new System.Drawing.Size(13, 13);
+            this.LblTotalFiles.TabIndex = 2;
+            this.LblTotalFiles.Text = "0";
+            // 
+            // LblDetected
+            // 
+            this.LblDetected.AutoSize = true;
+            this.LblDetected.Location = new System.Drawing.Point(85, 84);
+            this.LblDetected.Name = "LblDetected";
+            this.LblDetected.Size = new System.Drawing.Size(13, 13);
+            this.LblDetected.TabIndex = 3;
+            this.LblDetected.Text = "0";
+            // 
+            // LblCurrentScan
+            // 
+            this.LblCurrentScan.AutoSize = true;
+            this.LblCurrentScan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblCurrentScan.Location = new System.Drawing.Point(145, 120);
+            this.LblCurrentScan.Name = "LblCurrentScan";
+            this.LblCurrentScan.Size = new System.Drawing.Size(58, 13);
+            this.LblCurrentScan.TabIndex = 3;
+            this.LblCurrentScan.Text = "Scanning :";
             // 
             // Form1
             // 
@@ -608,6 +689,9 @@ namespace Webblock_AV
             this.TabSelective.ResumeLayout(false);
             this.TabSelective.PerformLayout();
             this.TabScanner.ResumeLayout(false);
+            this.TabScanner.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -650,6 +734,13 @@ namespace Webblock_AV
         private System.Windows.Forms.TabPage TabQuickScan;
         private System.Windows.Forms.TabPage TabFullScan;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label LblDetected;
+        private System.Windows.Forms.Label LblTotalFiles;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblCurrentScan;
     }
 }
 

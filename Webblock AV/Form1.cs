@@ -7,6 +7,7 @@ using System.Threading;
 using System.Windows.Forms;
 using Webblock_AV.Helper;
 using ClamAV.Managed;
+using System.Linq;
 
 namespace Webblock_AV
 {
@@ -48,7 +49,7 @@ namespace Webblock_AV
             FolderBrowserDialog browseFolder = new FolderBrowserDialog();
             if (browseFolder.ShowDialog() == DialogResult.OK)
             {
-                listBox1.Items.Add(browseFolder.SelectedPath);
+                textBox1.Text = browseFolder.SelectedPath;
 
             }
             
@@ -354,6 +355,7 @@ namespace Webblock_AV
             TabSettings.BackColor = BackColor;
             TabAbout.BackColor = BackColor;
             treePath.BackColor = BackColor;
+            TabScanner.BackColor = BackColor;
 
         }
         private void IsChild(bool child)
@@ -379,14 +381,63 @@ namespace Webblock_AV
         private void BtnScan_Click(object sender, EventArgs e)
         {
 
-            ThreadStart starter = GetFilesInDirectory;
+            //ThreadStart starter = GetFilesInDirectory;
+            //starter += () =>
+            //{
+            //    Thread ScanThread = new Thread(Scan);
+            //    ScanThread.Start();
+            //};
+            //Thread RetrieveFiles = new Thread(starter) { IsBackground = true };
+            //RetrieveFiles.Start();
+
+            ThreadStart starter = ScanDir;
             starter += () =>
             {
-                MessageBox.Show("Complete");
+                BeginInvoke(new MethodInvoker(delegate ()
+                {
+                    MessageBox.Show(this, "Scan Completed, no virus were found", "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }));
+
             };
-            Thread RetrieveFiles = new Thread(starter) { IsBackground = true };
-            RetrieveFiles.Start();
+            Thread threadScan = new Thread(starter) { IsBackground = true };
+            threadScan.Start();
+            //Thread threadScan = new Thread(ScanDir);
+            //threadScan.Start();
+
         }
 
+        private void Scan()
+        {
+            progressBar1.Maximum = files.Count;
+
+            for (int i = 0; i <= files.Count - 1; i++)
+            {
+                string virusName;
+                ScanResult result = clamAV.ScanFile(files[i], ScanOptions.StandardOptions, out virusName);
+                this.Invoke(new Action(() =>
+                {
+                    progressBar1.Value = i;
+                    LblCurrentScan.Text = files[i];
+
+                }));
+
+            }
+        }
+
+        private void ScanDir()
+        {
+            var scannedFiles = new List<Tuple<string, ScanResult, string>>();
+
+                clamAV.ScanDirectory(textBox1.Text, (file, result, virus) =>
+                {
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        LblCurrentScan.Text = file;
+                        LblTotalFiles.Text = scannedFiles.Count.ToString();
+                    }));
+                });
+                var infected = scannedFiles.Where(f => f.Item2 == ScanResult.Virus);
+            
+        }
     }
 }
