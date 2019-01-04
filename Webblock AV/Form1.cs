@@ -126,13 +126,9 @@ namespace Webblock_AV
 
             for(int i = 0; i<=treePath.Nodes[0].Nodes.Count-1; i++)
             {
-                treePath.Nodes[0].Nodes[i].ImageIndex = 1;
-                treePath.Nodes[0].Nodes[i].SelectedImageIndex = 1;
-                foreach (TreeNode nodes in treePath.Nodes[0].Nodes[i].Nodes)
-                {
-                    nodes.SelectedImageIndex = 2;
-                    nodes.ImageIndex = 2;
-                }
+                var n = treePath.Nodes[0].Nodes[i];
+                n.ImageIndex = 1;
+                n.SelectedImageIndex = 1;
             }
             
       
@@ -142,7 +138,17 @@ namespace Webblock_AV
         #region PopulateTreeOnLoad
         private void GetAllDirectories()
         {
-           
+           foreach(TreeNode node in treePath.Nodes[0].Nodes)
+            {
+                foreach(string dirNode in Directory.GetDirectories(node.Name))
+                {
+                    var n = node.Nodes.Add(new DirectoryInfo(dirNode).Name);
+                    n.Name = dirNode;
+                    n.SelectedImageIndex = 2;
+                    n.ImageIndex = 2;
+
+                }
+            }
         }
         #endregion
 
@@ -163,23 +169,29 @@ namespace Webblock_AV
 
         private void treeView1_BeforeExpand(object sender, TreeViewCancelEventArgs e)
         {
-            if (!(e.Node.Text.Contains(")") && e.Node.Text.Contains(":") || e.Node.Text.Contains("This PC")))
+            if (!(e.Node.Text.Contains("This PC")))
             {
-                combinedPath = combinedPath + e.Node.Text;
-                MessageBox.Show(combinedPath);
-            }
-            else if(e.Node.Text.Contains(")") && e.Node.Text.Contains(":"))
-            {
-                //foreach (string dir in Directory.GetDirectories(e.Node.NextNode.Name))
-                //{
-                //    e.Node.NextNode.Nodes.Add(new DirectoryInfo(dir).Name);
-                //}
-                combinedPath = "";
-                combinedPath = e.Node.Text.Substring(e.Node.Text.IndexOf("(")+1,3);
-                MessageBox.Show(combinedPath);
+               foreach(TreeNode node in e.Node.Nodes)
+                {
+                    try
+                    {
+                        foreach (string dir in Directory.GetDirectories(node.Name))
+                        {
+                            var n = node.Nodes.Add(new DirectoryInfo(dir).Name);
+                            n.Name = dir;
+                            n.SelectedImageIndex = 2;
+                            n.ImageIndex = 2;
+                        }
+                    }
+                    catch
+                    {
+                        continue;
+                    }
+                }
             }
 
         }
+        
         #endregion
 
         #region BtnTab
@@ -392,8 +404,6 @@ namespace Webblock_AV
 
         private void Scan()
         {
-            //progressBar1.Maximum = files.Count;
-
             for (int i = 0; i <= files.Count - 1; i++)
             {
                 string virusName;
