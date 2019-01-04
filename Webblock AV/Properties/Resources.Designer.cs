@@ -63,6 +63,16 @@ namespace Webblock_AV.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_add_circle_outline_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_add_circle_outline_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_help_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_help_white_24dp", resourceCulture);
@@ -116,6 +126,16 @@ namespace Webblock_AV.Properties {
         internal static System.Drawing.Bitmap baseline_search_white_24dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_search_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_search_white_24dp_48px {
+            get {
+                object obj = ResourceManager.GetObject("baseline_search_white_24dp_48px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -49,7 +49,7 @@ namespace Webblock_AV
             FolderBrowserDialog browseFolder = new FolderBrowserDialog();
             if (browseFolder.ShowDialog() == DialogResult.OK)
             {
-                textBox1.Text = browseFolder.SelectedPath;
+                //textBox1.Text = browseFolder.SelectedPath;
 
             }
             
@@ -57,29 +57,29 @@ namespace Webblock_AV
 
         private void GetFilesInDirectory()
         {
-            foreach (string item in listBox1.Items){
-                foreach (string listF in Directory.GetFiles(item))
-                {
-                    files.Add(listF);
-                }
-                foreach (string dir in Directory.GetDirectories(item, "*", SearchOption.AllDirectories))
-                {
+            //foreach (string item in listBox1.Items){
+            //    foreach (string listF in Directory.GetFiles(item))
+            //    {
+            //        files.Add(listF);
+            //    }
+            //    foreach (string dir in Directory.GetDirectories(item, "*", SearchOption.AllDirectories))
+            //    {
 
-                    subDir.Add(dir);
-                    foreach (string flist in Directory.GetFiles(dir))
-                    {
-                        //if (InvokeRequired)
-                        //{
-                        //    BeginInvoke(new MethodInvoker(delegate ()
-                        //    {
-                        //        listBox1.Items.Add(flist);
-                        //    }));
-                        //}
-                        files.Add(flist);
-                    }
+            //        subDir.Add(dir);
+            //        foreach (string flist in Directory.GetFiles(dir))
+            //        {
+            //            //if (InvokeRequired)
+            //            //{
+            //            //    BeginInvoke(new MethodInvoker(delegate ()
+            //            //    {
+            //            //        listBox1.Items.Add(flist);
+            //            //    }));
+            //            //}
+            //            files.Add(flist);
+            //        }
 
-                }
-            }
+            //    }
+            //}
             
 
             
@@ -109,59 +109,43 @@ namespace Webblock_AV
             CustomColor();
 
             #endregion
-            TotalDrive = treePath.Nodes[0].Nodes.Count;
-            ShellImageList.Images.Add(ShellIcon.GetIcon(15));
-            for(int i=0; i<=TotalDrive-1; i++)
-            {
-                ShellImageList.Images.Add(ShellIcon.GetIcon(8));
-                treePath.Nodes[0].Nodes[i].ImageIndex = i + 1;
-                treePath.Nodes[0].Nodes[i].SelectedImageIndex = i + 1;
-            }
-            treePath.SelectedNode = treePath.Nodes[0];
-            ShellImageList.Images.Add(ShellIcon.GetIcon(3));
+            ApplyShellIcon();
             GetAllDirectories();
         }
 
+        #region GetShellIcon
+        private void ApplyShellIcon()
+        {
+            ShellImageList.Images.Add(ShellIcon.GetIcon(15)); //PC Icon
+            ShellImageList.Images.Add(ShellIcon.GetIcon(8)); //HDD Icon
+            ShellImageList.Images.Add(ShellIcon.GetIcon(3)); //Folder Icon
+
+            //now apply icon
+            treePath.Nodes[0].SelectedImageIndex = 0;
+            treePath.Nodes[0].ImageIndex = 0;
+
+            for(int i = 0; i<=treePath.Nodes[0].Nodes.Count-1; i++)
+            {
+                treePath.Nodes[0].Nodes[i].ImageIndex = 1;
+                treePath.Nodes[0].Nodes[i].SelectedImageIndex = 1;
+                foreach (TreeNode nodes in treePath.Nodes[0].Nodes[i].Nodes)
+                {
+                    nodes.SelectedImageIndex = 2;
+                    nodes.ImageIndex = 2;
+                }
+            }
+            
+      
+        }
+        #endregion
 
         #region PopulateTreeOnLoad
         private void GetAllDirectories()
         {
-            foreach(TreeNode node  in treePath.Nodes[0].Nodes)
-            {
-                string selectedTree = node.Text;
-                int startPathLocation = selectedTree.IndexOf("(");
-                string FinalSelectedTree = selectedTree.Substring(startPathLocation + 1, 3);
-                foreach(string dir in Directory.GetDirectories(FinalSelectedTree))
-                {
-                    treePath.Nodes[0].Nodes[node.Index].Nodes.Add(new DirectoryInfo(dir).Name).ImageIndex = ShellImageList.Images.Count - 1;              
-                }
-                foreach (TreeNode PropertyNode in treePath.Nodes[0].Nodes[node.Index].Nodes)
-                {
-                    PropertyNode.SelectedImageIndex = ShellImageList.Images.Count - 1;
-                    PropertyNode.Name = treePath.Nodes[0].Nodes[node.Index].Text.Substring(startPathLocation + 1,3) + PropertyNode.Text;
-                }
-                foreach (TreeNode DirNode in treePath.Nodes[0].Nodes[node.Index].Nodes)
-                {
-                    try
-                    {
-                        foreach (string dir in Directory.GetDirectories(DirNode.Name))
-                        {
-                            treePath.Nodes[0].Nodes[node.Index].Nodes[DirNode.Index].Nodes.Add(new DirectoryInfo(dir).Name).ImageIndex = ShellImageList.Images.Count - 1;
-                        }
-                        foreach (TreeNode PropertyNode in treePath.Nodes[0].Nodes[node.Index].Nodes[DirNode.Index].Nodes)
-                        {
-                            PropertyNode.SelectedImageIndex = ShellImageList.Images.Count - 1;
-                            PropertyNode.Name = treePath.Nodes[0].Text.Substring(startPathLocation + 1, 3) + PropertyNode.PrevNode.Text;
-                        }
-
-                    }
-                    catch { continue; }
-
-                }
-            }
-            
+           
         }
         #endregion
+
 
         #region PopulateTree
         private void GetDrives()
@@ -171,7 +155,7 @@ namespace Webblock_AV
             {
                if(drive.IsReady == true)
                 {
-                    treePath.Nodes[0].Nodes.Add(drive.VolumeLabel + " (" + drive.Name + ")");
+                    treePath.Nodes[0].Nodes.Add(drive.VolumeLabel + " (" + drive.Name + ")").Name = drive.Name;
                 }
                
             }
@@ -408,7 +392,7 @@ namespace Webblock_AV
 
         private void Scan()
         {
-            progressBar1.Maximum = files.Count;
+            //progressBar1.Maximum = files.Count;
 
             for (int i = 0; i <= files.Count - 1; i++)
             {
@@ -416,8 +400,8 @@ namespace Webblock_AV
                 ScanResult result = clamAV.ScanFile(files[i], ScanOptions.StandardOptions, out virusName);
                 this.Invoke(new Action(() =>
                 {
-                    progressBar1.Value = i;
-                    LblCurrentScan.Text = files[i];
+                   // progressBar1.Value = i;
+                    //LblCurrentScan.Text = files[i];
 
                 }));
 
@@ -426,18 +410,25 @@ namespace Webblock_AV
 
         private void ScanDir()
         {
-            var scannedFiles = new List<Tuple<string, ScanResult, string>>();
+            //var scannedFiles = new List<Tuple<string, ScanResult, string>>();
 
-                clamAV.ScanDirectory(textBox1.Text, (file, result, virus) =>
-                {
-                    BeginInvoke(new MethodInvoker(delegate ()
-                    {
-                        LblCurrentScan.Text = file;
-                        LblTotalFiles.Text = scannedFiles.Count.ToString();
-                    }));
-                });
-                var infected = scannedFiles.Where(f => f.Item2 == ScanResult.Virus);
+            //    clamAV.ScanDirectory(textBox1.Text, (file, result, virus) =>
+            //    {
+            //        scannedFiles.Add(Tuple.Create(file, result, virus));
+            //        BeginInvoke(new MethodInvoker(delegate ()
+            //        {
+            //           // LblCurrentScan.Text = file;
+            //            //LblTotalFiles.Text = scannedFiles.Count.ToString();
+            //        }));
+            //    });
+            //    var infected = scannedFiles.Where(f => f.Item2 == ScanResult.Virus);
+            //BeginInvoke(new MethodInvoker(delegate ()
+            //{
+            //    //LblDetected.Text = infected.Count().ToString();
+            //}));
             
         }
+
+
     }
 }

@@ -42,6 +42,9 @@
     <Reference Include="ClamAV.Managed.Async">
       <HintPath>..\..\..\..\Documentations\Source Code\ClamAV.Managed\ClamAV.Managed.Samples.Gui\bin\Debug\ClamAV.Managed.Async.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\..\..\..\Documentations\Source Code\MaterialSkin\bin\Release\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -55,8 +58,9 @@
     <Reference Include="Microsoft.VisualBasic.PowerPacks">
       <HintPath>..\..\..\Webblock Internet Security\Webblock Internet Security\bin\Release\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
     </Reference>
-    <Reference Include="MyComponents">
-      <HintPath>..\..\..\Webblock Internet Security\Webblock Internet Security\bin\Release\MyComponents.dll</HintPath>
+    <Reference Include="MyComponents, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\WebBlock Final PRO\MyComponents\bin\Release\MyComponents.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -79,19 +83,10 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ShellIcon.cs" />
-    <Compile Include="Main.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Main.Designer.cs">
-      <DependentUpon>Main.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
-      <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -174,6 +169,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Thunder_white_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_search_white_24dp_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\baseline_add_circle_outline_white_24dp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
