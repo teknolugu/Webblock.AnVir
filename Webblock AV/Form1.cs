@@ -185,7 +185,7 @@ namespace Webblock_AV
                     }
                     catch
                     {
-                        continue;
+                        
                     }
                 }
             }
