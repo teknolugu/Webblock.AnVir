@@ -18,8 +18,6 @@ namespace Webblock_AV
         private ClamEngine clamAV;
 
         private List<string> files = new List<string>();
-        private string combinedPath;
-        private int TotalDrive;
         private int Selected;
         public Main()
         {
@@ -398,8 +396,6 @@ namespace Webblock_AV
             };
             Thread threadScan = new Thread(starter) { IsBackground = true };
             threadScan.Start();
-            //Thread threadScan = new Thread(ScanDir);
-            //threadScan.Start();
 
         }
 
