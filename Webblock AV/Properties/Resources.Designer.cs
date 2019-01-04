@@ -163,6 +163,16 @@ namespace Webblock_AV.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_stop_white_24dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_stop_white_24dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Cursor_hand_white_24px {
             get {
                 object obj = ResourceManager.GetObject("Cursor_hand_white_24px", resourceCulture);

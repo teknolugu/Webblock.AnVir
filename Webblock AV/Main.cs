@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace Webblock_AV
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
         private List<string> ExpandedNode = new List<string>();
         private List<string> subDir = new List<string>();
@@ -21,7 +21,7 @@ namespace Webblock_AV
         private string combinedPath;
         private int TotalDrive;
         private int Selected;
-        public Form1()
+        public Main()
         {
             InitializeComponent();
             clamAV = new ClamEngine();
@@ -146,7 +146,7 @@ namespace Webblock_AV
                     n.Name = dirNode;
                     n.SelectedImageIndex = 2;
                     n.ImageIndex = 2;
-
+                  
                 }
             }
         }
@@ -258,6 +258,7 @@ namespace Webblock_AV
         {
             PanelSelector.Location = new Point(0, BtnTabFullScan.Location.Y);
             IsChild(true);
+            TabMain.SelectedTab = TabFullScan;
             Selected = 7;
             CheckSelected();
         }
