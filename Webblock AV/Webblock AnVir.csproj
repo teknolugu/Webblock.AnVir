@@ -94,6 +94,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helper\DbCreator.cs" />
+    <Compile Include="Helper\DbHelper.cs" />
+    <Compile Include="Helper\FileManagement.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +104,9 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\ShellIcon.cs" />
+    <Compile Include="Model\VirusFile.cs" />
+    <Compile Include="Process\ProcessManagement.cs" />
+    <Compile Include="Process\ProcessType.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main.resx">
@@ -176,9 +182,7 @@
   <ItemGroup>
     <None Include="Resources\baseline_home_white_24dp.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\baseline_play_circle_outline_white_24dp.png" />
   </ItemGroup>
