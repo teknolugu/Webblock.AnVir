@@ -16,6 +16,9 @@ namespace Webblock_AV
         private List<string> ExpandedNode = new List<string>();
         private List<string> subDir = new List<string>();
         private ClamEngine clamAV;
+        private List<string> selectedDir = new List<string>();
+        Thread threadScan;
+
 
         private List<string> files = new List<string>();
         private int Selected;
@@ -41,60 +44,6 @@ namespace Webblock_AV
             SetupThread.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            files.Clear();
-            FolderBrowserDialog browseFolder = new FolderBrowserDialog();
-            if (browseFolder.ShowDialog() == DialogResult.OK)
-            {
-                //textBox1.Text = browseFolder.SelectedPath;
-
-            }
-            
-        }
-
-        private void GetFilesInDirectory()
-        {
-            //foreach (string item in listBox1.Items){
-            //    foreach (string listF in Directory.GetFiles(item))
-            //    {
-            //        files.Add(listF);
-            //    }
-            //    foreach (string dir in Directory.GetDirectories(item, "*", SearchOption.AllDirectories))
-            //    {
-
-            //        subDir.Add(dir);
-            //        foreach (string flist in Directory.GetFiles(dir))
-            //        {
-            //            //if (InvokeRequired)
-            //            //{
-            //            //    BeginInvoke(new MethodInvoker(delegate ()
-            //            //    {
-            //            //        listBox1.Items.Add(flist);
-            //            //    }));
-            //            //}
-            //            files.Add(flist);
-            //        }
-
-            //    }
-            //}
-            
-
-            
-            if (InvokeRequired)
-            {
-                label1.BeginInvoke(new MethodInvoker(delegate ()
-                {
-                    label1.Text = files.Count.ToString();
-                }));
-            }
-
-        }
-       
-
-      
-
-        
         
 
         private void Form1_Load(object sender, EventArgs e)
@@ -375,16 +324,9 @@ namespace Webblock_AV
 
         private void BtnScan_Click(object sender, EventArgs e)
         {
+            TabMain.SelectedTab = TabScanner;
 
-            //ThreadStart starter = GetFilesInDirectory;
-            //starter += () =>
-            //{
-            //    Thread ScanThread = new Thread(Scan);
-            //    ScanThread.Start();
-            //};
-            //Thread RetrieveFiles = new Thread(starter) { IsBackground = true };
-            //RetrieveFiles.Start();
-
+            IsScan(true);
             ThreadStart starter = ScanDir;
             starter += () =>
             {
@@ -394,7 +336,7 @@ namespace Webblock_AV
                 }));
 
             };
-            Thread threadScan = new Thread(starter) { IsBackground = true };
+            threadScan = new Thread(starter) { IsBackground = true };
             threadScan.Start();
 
         }
@@ -417,25 +359,83 @@ namespace Webblock_AV
 
         private void ScanDir()
         {
-            //var scannedFiles = new List<Tuple<string, ScanResult, string>>();
+            var scannedFiles = new List<Tuple<string, ScanResult, string>>();
+            try
+            {
+                for (int i = 0; i <= selectedDir.Count - 1; i++)
+                {
 
-            //    clamAV.ScanDirectory(textBox1.Text, (file, result, virus) =>
-            //    {
-            //        scannedFiles.Add(Tuple.Create(file, result, virus));
-            //        BeginInvoke(new MethodInvoker(delegate ()
-            //        {
-            //           // LblCurrentScan.Text = file;
-            //            //LblTotalFiles.Text = scannedFiles.Count.ToString();
-            //        }));
-            //    });
-            //    var infected = scannedFiles.Where(f => f.Item2 == ScanResult.Virus);
-            //BeginInvoke(new MethodInvoker(delegate ()
-            //{
-            //    //LblDetected.Text = infected.Count().ToString();
-            //}));
+                    clamAV.ScanDirectory(selectedDir[i], (file, result, virus) =>
+                    {
+                        scannedFiles.Add(Tuple.Create(file, result, virus));
+                        BeginInvoke(new MethodInvoker(delegate ()
+                        {
+                            LblCurrent.Text = file;
+                            LblTotalScan.Text = scannedFiles.Count.ToString();
+                        }));
+                    });
+
+
+                    var infected = scannedFiles.Where(f => f.Item2 == ScanResult.Virus);
+                    BeginInvoke(new MethodInvoker(delegate ()
+                    {
+                        LblDetected.Text = infected.Count().ToString();
+                    }));
+
+                }
+            }
+            catch { }
             
+            
+
         }
 
+        private void treePath_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            if(e.Node.Checked == true)
+            {
+                selectedDir.Add(e.Node.Name);
+            }
+            else
+            {
+                try
+                {
+                    selectedDir.Remove(e.Node.Name);
+                }
+                catch { }
+            }
+        }
 
+        private void BtnStop_Click(object sender, EventArgs e)
+        {
+            switch(MessageBox.Show(this, "Apakah anda yakin ingin membatalkan proses scanning?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case DialogResult.Yes:
+                    threadScan.Abort();
+                    IsScan(false);
+                    break;
+            }
+
+        }
+        private void IsScan(bool scanState)
+        {
+            if (!(scanState == true))
+            {
+                if (InvokeRequired || InvokeRequired == false)
+                {
+                    BtnStop.Visible = false;
+                    LblTotalScan.Text = Convert.ToString(0);
+                    LblCurrent.Text = "";
+                }
+            }
+            else
+            {
+                if (InvokeRequired || InvokeRequired == false)
+                {
+                    BtnStop.Visible = true;
+                }
+            }
+            
+        }
     }
 }

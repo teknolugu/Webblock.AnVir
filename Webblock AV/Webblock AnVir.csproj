@@ -50,6 +50,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialFramework">
+      <HintPath>..\..\..\WebBlock Final PRO\MyComponents\bin\Release\MaterialFramework.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin">
       <HintPath>..\..\..\..\Documentations\Source Code\MaterialSkin\bin\Release\MaterialSkin.dll</HintPath>
     </Reference>
@@ -65,10 +68,6 @@
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks">
       <HintPath>..\..\..\Webblock Internet Security\Webblock Internet Security\bin\Release\Microsoft.VisualBasic.PowerPacks.dll</HintPath>
-    </Reference>
-    <Reference Include="MyComponents, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\WebBlock Final PRO\MyComponents\bin\Release\MyComponents.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />

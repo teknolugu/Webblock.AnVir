@@ -32,12 +32,21 @@ namespace Webblock_AV
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("This PC");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("This PC");
             this.label1 = new System.Windows.Forms.Label();
             this.PanelSide = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
+            this.BtnTabFullScan = new MaterialFramework.HButton();
+            this.BtnTabQuickScan = new MaterialFramework.HButton();
+            this.BtnTabSelective = new MaterialFramework.HButton();
+            this.BtnDashBoard = new MaterialFramework.HButton();
+            this.BtnUpdates = new MaterialFramework.HButton();
+            this.BtnAbout = new MaterialFramework.HButton();
             this.PanelSelector = new System.Windows.Forms.Panel();
+            this.BtnSettings = new MaterialFramework.HButton();
+            this.BtnScanner = new MaterialFramework.HButton();
+            this.BtnProtection = new MaterialFramework.HButton();
             this.shapeContainer2 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.button1 = new System.Windows.Forms.Button();
@@ -49,44 +58,35 @@ namespace Webblock_AV
             this.TabSelective = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.BtnScan = new System.Windows.Forms.Button();
             this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
             this.lineShape3 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.TabUpdates = new System.Windows.Forms.TabPage();
             this.TabSettings = new System.Windows.Forms.TabPage();
             this.TabAbout = new System.Windows.Forms.TabPage();
             this.TabScanner = new System.Windows.Forms.TabPage();
+            this.materialPanel2 = new MaterialFramework.MaterialPanel();
+            this.BtnStop = new System.Windows.Forms.Button();
+            this.LblDetected = new System.Windows.Forms.Label();
+            this.LblTotalScan = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.LblCurrent = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.label5 = new System.Windows.Forms.Label();
             this.TabQuickScan = new System.Windows.Forms.TabPage();
             this.TabFullScan = new System.Windows.Forms.TabPage();
             this.materialContextMenuStrip1 = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialPanel2 = new MyComponents.MaterialPanel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.label5 = new System.Windows.Forms.Label();
-            this.BtnTabFullScan = new MyComponents.HButton();
-            this.BtnTabQuickScan = new MyComponents.HButton();
-            this.BtnTabSelective = new MyComponents.HButton();
-            this.BtnDashBoard = new MyComponents.HButton();
-            this.BtnUpdates = new MyComponents.HButton();
-            this.BtnAbout = new MyComponents.HButton();
-            this.BtnSettings = new MyComponents.HButton();
-            this.BtnScanner = new MyComponents.HButton();
-            this.BtnProtection = new MyComponents.HButton();
-            this.BtnScan = new System.Windows.Forms.Button();
-            this.BtnStop = new System.Windows.Forms.Button();
             this.PanelSide.SuspendLayout();
             this.TabMain.SuspendLayout();
             this.TabSelective.SuspendLayout();
             this.TabScanner.SuspendLayout();
-            this.materialContextMenuStrip1.SuspendLayout();
             this.materialPanel2.SuspendLayout();
+            this.materialContextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -130,373 +130,6 @@ namespace Webblock_AV
             this.label4.Size = new System.Drawing.Size(161, 30);
             this.label4.TabIndex = 9;
             this.label4.Text = "Webblock AnVir";
-            // 
-            // PanelSelector
-            // 
-            this.PanelSelector.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.PanelSelector.Location = new System.Drawing.Point(0, 64);
-            this.PanelSelector.Name = "PanelSelector";
-            this.PanelSelector.Size = new System.Drawing.Size(3, 50);
-            this.PanelSelector.TabIndex = 7;
-            // 
-            // shapeContainer2
-            // 
-            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer2.Name = "shapeContainer2";
-            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape1});
-            this.shapeContainer2.Size = new System.Drawing.Size(262, 609);
-            this.shapeContainer2.TabIndex = 10;
-            this.shapeContainer2.TabStop = false;
-            // 
-            // lineShape1
-            // 
-            this.lineShape1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lineShape1.BorderColor = System.Drawing.SystemColors.Control;
-            this.lineShape1.Name = "lineShape1";
-            this.lineShape1.X1 = 9;
-            this.lineShape1.X2 = 244;
-            this.lineShape1.Y1 = 465;
-            this.lineShape1.Y2 = 465;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(507, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // treePath
-            // 
-            this.treePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.treePath.CheckBoxes = true;
-            this.treePath.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treePath.HideSelection = false;
-            this.treePath.ImageIndex = 0;
-            this.treePath.ImageList = this.ShellImageList;
-            this.treePath.Location = new System.Drawing.Point(29, 126);
-            this.treePath.Name = "treePath";
-            treeNode1.Name = "Node0";
-            treeNode1.Text = "This PC";
-            this.treePath.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            this.treePath.SelectedImageIndex = 0;
-            this.treePath.Size = new System.Drawing.Size(705, 402);
-            this.treePath.TabIndex = 0;
-            this.treePath.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
-            // 
-            // ShellImageList
-            // 
-            this.ShellImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ShellImageList.ImageSize = new System.Drawing.Size(16, 16);
-            this.ShellImageList.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // TabMain
-            // 
-            this.TabMain.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.TabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TabMain.Controls.Add(this.TabDashboard);
-            this.TabMain.Controls.Add(this.TabProtection);
-            this.TabMain.Controls.Add(this.TabSelective);
-            this.TabMain.Controls.Add(this.TabUpdates);
-            this.TabMain.Controls.Add(this.TabSettings);
-            this.TabMain.Controls.Add(this.TabAbout);
-            this.TabMain.Controls.Add(this.TabScanner);
-            this.TabMain.Controls.Add(this.TabQuickScan);
-            this.TabMain.Controls.Add(this.TabFullScan);
-            this.TabMain.Location = new System.Drawing.Point(229, -13);
-            this.TabMain.Multiline = true;
-            this.TabMain.Name = "TabMain";
-            this.TabMain.SelectedIndex = 0;
-            this.TabMain.Size = new System.Drawing.Size(793, 630);
-            this.TabMain.TabIndex = 6;
-            // 
-            // TabDashboard
-            // 
-            this.TabDashboard.BackColor = System.Drawing.Color.DimGray;
-            this.TabDashboard.Location = new System.Drawing.Point(23, 4);
-            this.TabDashboard.Name = "TabDashboard";
-            this.TabDashboard.Padding = new System.Windows.Forms.Padding(3);
-            this.TabDashboard.Size = new System.Drawing.Size(766, 622);
-            this.TabDashboard.TabIndex = 0;
-            this.TabDashboard.Text = "tabPage1";
-            // 
-            // TabProtection
-            // 
-            this.TabProtection.Location = new System.Drawing.Point(23, 4);
-            this.TabProtection.Name = "TabProtection";
-            this.TabProtection.Padding = new System.Windows.Forms.Padding(3);
-            this.TabProtection.Size = new System.Drawing.Size(766, 622);
-            this.TabProtection.TabIndex = 1;
-            this.TabProtection.Text = "tabPage2";
-            this.TabProtection.UseVisualStyleBackColor = true;
-            // 
-            // TabSelective
-            // 
-            this.TabSelective.BackColor = System.Drawing.Color.DimGray;
-            this.TabSelective.Controls.Add(this.button1);
-            this.TabSelective.Controls.Add(this.treePath);
-            this.TabSelective.Controls.Add(this.label1);
-            this.TabSelective.Controls.Add(this.label2);
-            this.TabSelective.Controls.Add(this.label3);
-            this.TabSelective.Controls.Add(this.shapeContainer1);
-            this.TabSelective.Controls.Add(this.BtnScan);
-            this.TabSelective.Location = new System.Drawing.Point(23, 4);
-            this.TabSelective.Name = "TabSelective";
-            this.TabSelective.Size = new System.Drawing.Size(766, 622);
-            this.TabSelective.TabIndex = 2;
-            this.TabSelective.Text = "TabSelective";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(23, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 30);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Selective Scan";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label3.Location = new System.Drawing.Point(24, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Choose what you want to scan";
-            // 
-            // shapeContainer1
-            // 
-            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
-            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
-            this.shapeContainer1.Name = "shapeContainer1";
-            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
-            this.lineShape3});
-            this.shapeContainer1.Size = new System.Drawing.Size(766, 622);
-            this.shapeContainer1.TabIndex = 4;
-            this.shapeContainer1.TabStop = false;
-            // 
-            // lineShape3
-            // 
-            this.lineShape3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lineShape3.BorderColor = System.Drawing.SystemColors.ControlDark;
-            this.lineShape3.Name = "lineShape3";
-            this.lineShape3.X1 = 27;
-            this.lineShape3.X2 = 732;
-            this.lineShape3.Y1 = 90;
-            this.lineShape3.Y2 = 90;
-            // 
-            // TabUpdates
-            // 
-            this.TabUpdates.Location = new System.Drawing.Point(23, 4);
-            this.TabUpdates.Name = "TabUpdates";
-            this.TabUpdates.Size = new System.Drawing.Size(766, 622);
-            this.TabUpdates.TabIndex = 3;
-            this.TabUpdates.Text = "TabUpdates";
-            this.TabUpdates.UseVisualStyleBackColor = true;
-            // 
-            // TabSettings
-            // 
-            this.TabSettings.Location = new System.Drawing.Point(23, 4);
-            this.TabSettings.Name = "TabSettings";
-            this.TabSettings.Size = new System.Drawing.Size(766, 622);
-            this.TabSettings.TabIndex = 4;
-            this.TabSettings.Text = "tabPage3";
-            this.TabSettings.UseVisualStyleBackColor = true;
-            // 
-            // TabAbout
-            // 
-            this.TabAbout.Location = new System.Drawing.Point(23, 4);
-            this.TabAbout.Name = "TabAbout";
-            this.TabAbout.Size = new System.Drawing.Size(766, 622);
-            this.TabAbout.TabIndex = 5;
-            this.TabAbout.Text = "tabPage1";
-            this.TabAbout.UseVisualStyleBackColor = true;
-            // 
-            // TabScanner
-            // 
-            this.TabScanner.BackColor = System.Drawing.Color.DimGray;
-            this.TabScanner.Controls.Add(this.materialPanel2);
-            this.TabScanner.Location = new System.Drawing.Point(23, 4);
-            this.TabScanner.Name = "TabScanner";
-            this.TabScanner.Size = new System.Drawing.Size(766, 622);
-            this.TabScanner.TabIndex = 6;
-            this.TabScanner.Text = "tabPage1";
-            // 
-            // TabQuickScan
-            // 
-            this.TabQuickScan.Location = new System.Drawing.Point(23, 4);
-            this.TabQuickScan.Name = "TabQuickScan";
-            this.TabQuickScan.Size = new System.Drawing.Size(766, 622);
-            this.TabQuickScan.TabIndex = 7;
-            this.TabQuickScan.Text = "tabPage1";
-            this.TabQuickScan.UseVisualStyleBackColor = true;
-            // 
-            // TabFullScan
-            // 
-            this.TabFullScan.Location = new System.Drawing.Point(23, 4);
-            this.TabFullScan.Name = "TabFullScan";
-            this.TabFullScan.Size = new System.Drawing.Size(766, 622);
-            this.TabFullScan.TabIndex = 8;
-            this.TabFullScan.Text = "tabPage1";
-            this.TabFullScan.UseVisualStyleBackColor = true;
-            // 
-            // materialContextMenuStrip1
-            // 
-            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialContextMenuStrip1.Depth = 0;
-            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.filesToolStripMenuItem,
-            this.directoryToolStripMenuItem});
-            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
-            this.materialContextMenuStrip1.Size = new System.Drawing.Size(123, 48);
-            // 
-            // filesToolStripMenuItem
-            // 
-            this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
-            this.filesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.filesToolStripMenuItem.Text = "Files";
-            // 
-            // directoryToolStripMenuItem
-            // 
-            this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
-            this.directoryToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.directoryToolStripMenuItem.Text = "Directory";
-            // 
-            // materialPanel2
-            // 
-            this.materialPanel2.Controls.Add(this.BtnStop);
-            this.materialPanel2.Controls.Add(this.label12);
-            this.materialPanel2.Controls.Add(this.label11);
-            this.materialPanel2.Controls.Add(this.label10);
-            this.materialPanel2.Controls.Add(this.label9);
-            this.materialPanel2.Controls.Add(this.label8);
-            this.materialPanel2.Controls.Add(this.label7);
-            this.materialPanel2.Controls.Add(this.label6);
-            this.materialPanel2.Controls.Add(this.progressBar1);
-            this.materialPanel2.Controls.Add(this.label5);
-            this.materialPanel2.DarkTheme = true;
-            this.materialPanel2.Location = new System.Drawing.Point(48, 146);
-            this.materialPanel2.Name = "materialPanel2";
-            this.materialPanel2.Size = new System.Drawing.Size(651, 329);
-            this.materialPanel2.TabIndex = 5;
-            // 
-            // label12
-            // 
-            this.label12.AutoEllipsis = true;
-            this.label12.BackColor = System.Drawing.Color.Transparent;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Red;
-            this.label12.Location = new System.Drawing.Point(101, 249);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 15);
-            this.label12.TabIndex = 8;
-            this.label12.Text = "0";
-            // 
-            // label11
-            // 
-            this.label11.AutoEllipsis = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label11.Location = new System.Drawing.Point(164, 220);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(54, 15);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "0";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label10.Location = new System.Drawing.Point(21, 220);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(141, 17);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "Total file yang di scan :";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label9.Location = new System.Drawing.Point(21, 249);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 17);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Terdeteksi :";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label8.Location = new System.Drawing.Point(19, 179);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(126, 25);
-            this.label8.TabIndex = 4;
-            this.label8.Text = "Laporan Scan";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label7.Location = new System.Drawing.Point(89, 66);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(13, 17);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "-";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(21, 66);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 17);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Scanning :";
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(24, 93);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(593, 23);
-            this.progressBar1.TabIndex = 1;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label5.Location = new System.Drawing.Point(18, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Proses Scan";
             // 
             // BtnTabFullScan
             // 
@@ -632,6 +265,14 @@ namespace Webblock_AV
             this.BtnAbout.UseVisualStyleBackColor = false;
             this.BtnAbout.Click += new System.EventHandler(this.BtnAbout_Click);
             // 
+            // PanelSelector
+            // 
+            this.PanelSelector.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.PanelSelector.Location = new System.Drawing.Point(0, 64);
+            this.PanelSelector.Name = "PanelSelector";
+            this.PanelSelector.Size = new System.Drawing.Size(3, 50);
+            this.PanelSelector.TabIndex = 7;
+            // 
             // BtnSettings
             // 
             this.BtnSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -700,6 +341,145 @@ namespace Webblock_AV
             this.BtnProtection.UseVisualStyleBackColor = false;
             this.BtnProtection.Click += new System.EventHandler(this.BtnProtection_Click);
             // 
+            // shapeContainer2
+            // 
+            this.shapeContainer2.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer2.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer2.Name = "shapeContainer2";
+            this.shapeContainer2.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer2.Size = new System.Drawing.Size(262, 609);
+            this.shapeContainer2.TabIndex = 10;
+            this.shapeContainer2.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lineShape1.BorderColor = System.Drawing.SystemColors.Control;
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 9;
+            this.lineShape1.X2 = 244;
+            this.lineShape1.Y1 = 465;
+            this.lineShape1.Y2 = 465;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(507, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            // 
+            // treePath
+            // 
+            this.treePath.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.treePath.CheckBoxes = true;
+            this.treePath.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treePath.HideSelection = false;
+            this.treePath.ImageIndex = 0;
+            this.treePath.ImageList = this.ShellImageList;
+            this.treePath.Location = new System.Drawing.Point(29, 126);
+            this.treePath.Name = "treePath";
+            treeNode2.Name = "Node0";
+            treeNode2.Text = "This PC";
+            this.treePath.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode2});
+            this.treePath.SelectedImageIndex = 0;
+            this.treePath.Size = new System.Drawing.Size(705, 402);
+            this.treePath.TabIndex = 0;
+            this.treePath.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treePath_AfterCheck);
+            this.treePath.BeforeExpand += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeView1_BeforeExpand);
+            // 
+            // ShellImageList
+            // 
+            this.ShellImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ShellImageList.ImageSize = new System.Drawing.Size(16, 16);
+            this.ShellImageList.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // TabMain
+            // 
+            this.TabMain.Alignment = System.Windows.Forms.TabAlignment.Left;
+            this.TabMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TabMain.Controls.Add(this.TabDashboard);
+            this.TabMain.Controls.Add(this.TabProtection);
+            this.TabMain.Controls.Add(this.TabSelective);
+            this.TabMain.Controls.Add(this.TabUpdates);
+            this.TabMain.Controls.Add(this.TabSettings);
+            this.TabMain.Controls.Add(this.TabAbout);
+            this.TabMain.Controls.Add(this.TabScanner);
+            this.TabMain.Controls.Add(this.TabQuickScan);
+            this.TabMain.Controls.Add(this.TabFullScan);
+            this.TabMain.Location = new System.Drawing.Point(229, -13);
+            this.TabMain.Multiline = true;
+            this.TabMain.Name = "TabMain";
+            this.TabMain.SelectedIndex = 0;
+            this.TabMain.Size = new System.Drawing.Size(793, 630);
+            this.TabMain.TabIndex = 6;
+            // 
+            // TabDashboard
+            // 
+            this.TabDashboard.BackColor = System.Drawing.Color.DimGray;
+            this.TabDashboard.Location = new System.Drawing.Point(23, 4);
+            this.TabDashboard.Name = "TabDashboard";
+            this.TabDashboard.Padding = new System.Windows.Forms.Padding(3);
+            this.TabDashboard.Size = new System.Drawing.Size(766, 622);
+            this.TabDashboard.TabIndex = 0;
+            this.TabDashboard.Text = "tabPage1";
+            // 
+            // TabProtection
+            // 
+            this.TabProtection.Location = new System.Drawing.Point(23, 4);
+            this.TabProtection.Name = "TabProtection";
+            this.TabProtection.Padding = new System.Windows.Forms.Padding(3);
+            this.TabProtection.Size = new System.Drawing.Size(766, 622);
+            this.TabProtection.TabIndex = 1;
+            this.TabProtection.Text = "tabPage2";
+            this.TabProtection.UseVisualStyleBackColor = true;
+            // 
+            // TabSelective
+            // 
+            this.TabSelective.BackColor = System.Drawing.Color.DimGray;
+            this.TabSelective.Controls.Add(this.button1);
+            this.TabSelective.Controls.Add(this.treePath);
+            this.TabSelective.Controls.Add(this.label1);
+            this.TabSelective.Controls.Add(this.label2);
+            this.TabSelective.Controls.Add(this.label3);
+            this.TabSelective.Controls.Add(this.BtnScan);
+            this.TabSelective.Controls.Add(this.shapeContainer1);
+            this.TabSelective.Location = new System.Drawing.Point(23, 4);
+            this.TabSelective.Name = "TabSelective";
+            this.TabSelective.Size = new System.Drawing.Size(766, 622);
+            this.TabSelective.TabIndex = 2;
+            this.TabSelective.Text = "TabSelective";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Location = new System.Drawing.Point(23, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 30);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Selective Scan";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label3.Location = new System.Drawing.Point(24, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Choose what you want to scan";
+            // 
             // BtnScan
             // 
             this.BtnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -720,6 +500,83 @@ namespace Webblock_AV
             this.BtnScan.UseVisualStyleBackColor = false;
             this.BtnScan.Click += new System.EventHandler(this.BtnScan_Click);
             // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape3});
+            this.shapeContainer1.Size = new System.Drawing.Size(766, 622);
+            this.shapeContainer1.TabIndex = 4;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape3
+            // 
+            this.lineShape3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lineShape3.BorderColor = System.Drawing.SystemColors.ControlDark;
+            this.lineShape3.Name = "lineShape3";
+            this.lineShape3.X1 = 27;
+            this.lineShape3.X2 = 732;
+            this.lineShape3.Y1 = 90;
+            this.lineShape3.Y2 = 90;
+            // 
+            // TabUpdates
+            // 
+            this.TabUpdates.Location = new System.Drawing.Point(23, 4);
+            this.TabUpdates.Name = "TabUpdates";
+            this.TabUpdates.Size = new System.Drawing.Size(766, 622);
+            this.TabUpdates.TabIndex = 3;
+            this.TabUpdates.Text = "TabUpdates";
+            this.TabUpdates.UseVisualStyleBackColor = true;
+            // 
+            // TabSettings
+            // 
+            this.TabSettings.Location = new System.Drawing.Point(23, 4);
+            this.TabSettings.Name = "TabSettings";
+            this.TabSettings.Size = new System.Drawing.Size(766, 622);
+            this.TabSettings.TabIndex = 4;
+            this.TabSettings.Text = "tabPage3";
+            this.TabSettings.UseVisualStyleBackColor = true;
+            // 
+            // TabAbout
+            // 
+            this.TabAbout.Location = new System.Drawing.Point(23, 4);
+            this.TabAbout.Name = "TabAbout";
+            this.TabAbout.Size = new System.Drawing.Size(766, 622);
+            this.TabAbout.TabIndex = 5;
+            this.TabAbout.Text = "tabPage1";
+            this.TabAbout.UseVisualStyleBackColor = true;
+            // 
+            // TabScanner
+            // 
+            this.TabScanner.BackColor = System.Drawing.Color.DimGray;
+            this.TabScanner.Controls.Add(this.materialPanel2);
+            this.TabScanner.Location = new System.Drawing.Point(23, 4);
+            this.TabScanner.Name = "TabScanner";
+            this.TabScanner.Size = new System.Drawing.Size(766, 622);
+            this.TabScanner.TabIndex = 6;
+            this.TabScanner.Text = "tabPage1";
+            // 
+            // materialPanel2
+            // 
+            this.materialPanel2.Controls.Add(this.BtnStop);
+            this.materialPanel2.Controls.Add(this.LblDetected);
+            this.materialPanel2.Controls.Add(this.LblTotalScan);
+            this.materialPanel2.Controls.Add(this.label10);
+            this.materialPanel2.Controls.Add(this.label9);
+            this.materialPanel2.Controls.Add(this.label8);
+            this.materialPanel2.Controls.Add(this.LblCurrent);
+            this.materialPanel2.Controls.Add(this.label6);
+            this.materialPanel2.Controls.Add(this.progressBar1);
+            this.materialPanel2.Controls.Add(this.label5);
+            this.materialPanel2.DarkTheme = true;
+            this.materialPanel2.Location = new System.Drawing.Point(48, 146);
+            this.materialPanel2.Name = "materialPanel2";
+            this.materialPanel2.Size = new System.Drawing.Size(651, 329);
+            this.materialPanel2.TabIndex = 5;
+            // 
             // BtnStop
             // 
             this.BtnStop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -738,8 +595,153 @@ namespace Webblock_AV
             this.BtnStop.Text = "    Stop";
             this.BtnStop.UseVisualStyleBackColor = false;
             this.BtnStop.Visible = false;
+            this.BtnStop.Click += new System.EventHandler(this.BtnStop_Click);
             // 
-            // Form1
+            // LblDetected
+            // 
+            this.LblDetected.AutoEllipsis = true;
+            this.LblDetected.BackColor = System.Drawing.Color.Transparent;
+            this.LblDetected.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDetected.ForeColor = System.Drawing.Color.Red;
+            this.LblDetected.Location = new System.Drawing.Point(101, 249);
+            this.LblDetected.Name = "LblDetected";
+            this.LblDetected.Size = new System.Drawing.Size(54, 15);
+            this.LblDetected.TabIndex = 8;
+            this.LblDetected.Text = "0";
+            // 
+            // LblTotalScan
+            // 
+            this.LblTotalScan.AutoEllipsis = true;
+            this.LblTotalScan.BackColor = System.Drawing.Color.Transparent;
+            this.LblTotalScan.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalScan.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblTotalScan.Location = new System.Drawing.Point(164, 220);
+            this.LblTotalScan.Name = "LblTotalScan";
+            this.LblTotalScan.Size = new System.Drawing.Size(54, 15);
+            this.LblTotalScan.TabIndex = 7;
+            this.LblTotalScan.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label10.Location = new System.Drawing.Point(21, 220);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(141, 17);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Total file yang di scan :";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label9.Location = new System.Drawing.Point(21, 249);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 17);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Terdeteksi :";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label8.Location = new System.Drawing.Point(19, 179);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(126, 25);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Laporan Scan";
+            // 
+            // LblCurrent
+            // 
+            this.LblCurrent.AutoEllipsis = true;
+            this.LblCurrent.BackColor = System.Drawing.Color.Transparent;
+            this.LblCurrent.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCurrent.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LblCurrent.Location = new System.Drawing.Point(89, 66);
+            this.LblCurrent.Name = "LblCurrent";
+            this.LblCurrent.Size = new System.Drawing.Size(528, 17);
+            this.LblCurrent.TabIndex = 3;
+            this.LblCurrent.Text = "-";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(21, 66);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 17);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Scanning :";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(24, 93);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(593, 23);
+            this.progressBar1.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label5.Location = new System.Drawing.Point(18, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(112, 25);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Proses Scan";
+            // 
+            // TabQuickScan
+            // 
+            this.TabQuickScan.Location = new System.Drawing.Point(23, 4);
+            this.TabQuickScan.Name = "TabQuickScan";
+            this.TabQuickScan.Size = new System.Drawing.Size(766, 622);
+            this.TabQuickScan.TabIndex = 7;
+            this.TabQuickScan.Text = "tabPage1";
+            this.TabQuickScan.UseVisualStyleBackColor = true;
+            // 
+            // TabFullScan
+            // 
+            this.TabFullScan.Location = new System.Drawing.Point(23, 4);
+            this.TabFullScan.Name = "TabFullScan";
+            this.TabFullScan.Size = new System.Drawing.Size(766, 622);
+            this.TabFullScan.TabIndex = 8;
+            this.TabFullScan.Text = "tabPage1";
+            this.TabFullScan.UseVisualStyleBackColor = true;
+            // 
+            // materialContextMenuStrip1
+            // 
+            this.materialContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialContextMenuStrip1.Depth = 0;
+            this.materialContextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filesToolStripMenuItem,
+            this.directoryToolStripMenuItem});
+            this.materialContextMenuStrip1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialContextMenuStrip1.Name = "materialContextMenuStrip1";
+            this.materialContextMenuStrip1.Size = new System.Drawing.Size(123, 48);
+            // 
+            // filesToolStripMenuItem
+            // 
+            this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
+            this.filesToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.filesToolStripMenuItem.Text = "Files";
+            // 
+            // directoryToolStripMenuItem
+            // 
+            this.directoryToolStripMenuItem.Name = "directoryToolStripMenuItem";
+            this.directoryToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.directoryToolStripMenuItem.Text = "Directory";
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -748,7 +750,7 @@ namespace Webblock_AV
             this.Controls.Add(this.PanelSide);
             this.Controls.Add(this.TabMain);
             this.MinimumSize = new System.Drawing.Size(1030, 648);
-            this.Name = "Form1";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webblock AnVir";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -759,9 +761,9 @@ namespace Webblock_AV
             this.TabSelective.ResumeLayout(false);
             this.TabSelective.PerformLayout();
             this.TabScanner.ResumeLayout(false);
-            this.materialContextMenuStrip1.ResumeLayout(false);
             this.materialPanel2.ResumeLayout(false);
             this.materialPanel2.PerformLayout();
+            this.materialContextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -769,15 +771,15 @@ namespace Webblock_AV
         #endregion
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel PanelSide;
-        private MyComponents.HButton BtnProtection;
-        private MyComponents.HButton BtnScanner;
-        private MyComponents.HButton BtnSettings;
+        private MaterialFramework.HButton BtnProtection;
+        private MaterialFramework.HButton BtnScanner;
+        private MaterialFramework.HButton BtnSettings;
         private System.Windows.Forms.Panel PanelSelector;
-        private MyComponents.HButton BtnAbout;
+        private MaterialFramework.HButton BtnAbout;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer2;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
-        private MyComponents.HButton BtnDashBoard;
-        private MyComponents.HButton BtnUpdates;
+        private MaterialFramework.HButton BtnDashBoard;
+        private MaterialFramework.HButton BtnUpdates;
         private System.Windows.Forms.TabControl TabMain;
         private System.Windows.Forms.TabPage TabProtection;
         private System.Windows.Forms.TabPage TabDashboard;
@@ -792,24 +794,24 @@ namespace Webblock_AV
         private System.Windows.Forms.Label label3;
         private Microsoft.VisualBasic.PowerPacks.LineShape lineShape3;
         private System.Windows.Forms.Button BtnScan;
-        private MyComponents.HButton BtnTabSelective;
-        private MyComponents.HButton BtnTabFullScan;
-        private MyComponents.HButton BtnTabQuickScan;
+        private MaterialFramework.HButton BtnTabSelective;
+        private MaterialFramework.HButton BtnTabFullScan;
+        private MaterialFramework.HButton BtnTabQuickScan;
         private System.Windows.Forms.Label label4;
         private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
         private System.Windows.Forms.TabPage TabScanner;
         private System.Windows.Forms.TabPage TabQuickScan;
         private System.Windows.Forms.TabPage TabFullScan;
-        private MyComponents.MaterialPanel materialPanel2;
+        private MaterialFramework.MaterialPanel materialPanel2;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem directoryToolStripMenuItem;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LblCurrent;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LblDetected;
+        private System.Windows.Forms.Label LblTotalScan;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
