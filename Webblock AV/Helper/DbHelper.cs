@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Webblock_AV.Helper
+﻿namespace Webblock_AV.Helper
 {
-    class DbHelper
+    internal class DbHelper
     {
     }
 }

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Webblock_AV.Model
+﻿namespace Webblock_AV.Model
 {
-    class VirusFile
+    internal class VirusFile
     {
         private string FileName;
         private string FilePath;
@@ -23,6 +17,7 @@ namespace Webblock_AV.Model
                 FileName = value;
             }
         }
+
         public string filePath
         {
             get
@@ -34,6 +29,7 @@ namespace Webblock_AV.Model
                 FilePath = value;
             }
         }
+
         public string virusType
         {
             get
